@@ -1,3 +1,59 @@
+/* --- Mobile Responsive Sidebar --- */
+@media (max-width: 800px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        .history li {
+            cursor: pointer;
+            padding: 12px 18px;
+            margin: 0 0 2px 0;
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            transition: background 0.18s;
+        }
+        .history li:hover {
+            background: #ececf1;
+        }
+        .sign {
+            margin: 0 0 12px 0;
+            padding: 12px 0 0 0;
+            font-size: 1rem;
+            text-align: center;
+            border-top: 1px solid #ececf1;
+            color: #888;
+        }
+        .fa-trash {
+            opacity: 0.7;
+            margin-left: auto;
+            color: #b91c1c;
+            font-size: 1.1em;
+            transition: color 0.2s, opacity 0.2s;
+        }
+        .history li:hover .fa-trash {
+            opacity: 1;
+            color: #b91c1c;
+        }
+        .fa-trash:hover {
+            color: #ef4444 !important;
+        }
+        cursor: pointer;
+        z-index: 2100;
+    }
+    .history {
+        max-height: 60vh;
+        font-size: 1rem;
+        overflow-y: auto;
+    }
+    .sign {
+        font-size: 0.9rem;
+    }
+}
 .sidebar{
     background-color: #171717;
     color: #b4b4b4;

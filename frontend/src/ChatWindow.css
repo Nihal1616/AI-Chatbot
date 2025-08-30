@@ -1,3 +1,50 @@
+/* --- Mobile Responsive ChatWindow --- */
+@media (max-width: 800px) {
+    .chatWindow {
+        padding-top: 60px;
+        align-items: stretch;
+        min-height: 100vh;
+        width: 100vw;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        background: #212121;
+    }
+    .navbar {
+        flex-direction: row;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    .navbar span {
+        margin: 0.5rem 0.5rem;
+        font-size: 1.1rem;
+    }
+    .userIconDiv {
+        margin: 0.5rem 0.5rem;
+        font-size: 1.3rem;
+    }
+    .chatInput {
+        padding: 0 0.5rem 0.5rem 0.5rem;
+        width: 100vw;
+        box-sizing: border-box;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        background: #212121;
+        z-index: 100;
+    }
+    .inputBox {
+        max-width: 98vw;
+        width: 100%;
+    }
+    input {
+        font-size: 1rem;
+        padding: 12px 10px;
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
 /* Responsive ChatWindow and Navbar */
 @media (max-width: 800px) {
     .chatWindow {
