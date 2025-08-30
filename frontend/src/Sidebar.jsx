@@ -3,6 +3,7 @@ import "./Sidebar.css";
 import { useContext } from "react";
 import { MyContext } from "./MyContext.jsx";
 import { v1 as uuidv1 } from "uuid";
+import server from "../environment.js";
 
 export default function Sidebar() {
   const {
@@ -18,7 +19,7 @@ export default function Sidebar() {
 
   const getAllThread = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/thread");
+      const response = await fetch(`${server}/api/thread`);
       const res = await response.json();
       const filteredDate = res.map((thread) => ({
         threadId: thread.threadId,
@@ -46,7 +47,7 @@ export default function Sidebar() {
     setCurrThreadId(newThreadId);
 
     try{
-      const response=await fetch(`http://localhost:8000/api/thread/${newThreadId}`);
+      const response=await fetch(`${server}/api/thread/${newThreadId}`);
       const res=await response.json();
       
       setPrevChats(res);
@@ -62,7 +63,7 @@ export default function Sidebar() {
   const deleteThread = async (threadId) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/thread/${threadId}`,
+        `${server}/api/thread/${threadId}`,
         { method: "DELETE" }
       );
       const res = await response.json();

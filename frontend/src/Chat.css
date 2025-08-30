@@ -1,11 +1,34 @@
+/* Responsive Chat Area */
+@media (max-width: 800px) {
+    .chats {
+        max-width: 100vw;
+        min-height: 60vh;
+        height: calc(100vh - 140px); /* leave space for navbar and input */
+        padding: 1.5rem 0.5rem 1rem 0.5rem;
+        font-size: 0.98rem;
+        box-sizing: border-box;
+    }
+    .userMessage {
+        margin-left: 2rem;
+        max-width: 90vw;
+        font-size: 0.98rem;
+        padding: 8px 12px;
+    }
+    .gptDiv {
+        font-size: 0.98rem;
+    }
+}
 .chats {
     max-width: 900px;
+    height: 100%;
+    flex: 1 1 auto;
     overflow-y: auto;
-    padding: 8rem;
+    padding: 2rem 1rem 1rem 1rem;
 
     /* Firefox */
     scrollbar-width: thin;
     scrollbar-color: #444 #1e1e1e;  /* thumb | track */
+    box-sizing: border-box;
 }
 
 /* Chrome, Edge, Safari */
