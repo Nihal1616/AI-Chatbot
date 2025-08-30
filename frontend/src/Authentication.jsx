@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 import { MyContext } from "./MyContext";
+import server from "../environment";
 import "./Authentication.css";
 
 const Auth = () => {
