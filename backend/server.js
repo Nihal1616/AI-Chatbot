@@ -12,7 +12,7 @@ const PORT = 8000;
 app.use(express.json());
 app.use(
   cors({
-    origin: `https://ai-chatbot-1-h3vk.onrender.com`,
+    origin: ["http://localhost:5173", "https://ai-chatbot-1-h3vk.onrender.com"],
     credentials: true,
   })
 );
