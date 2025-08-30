@@ -1,3 +1,30 @@
+/* Responsive ChatWindow and Navbar */
+@media (max-width: 800px) {
+    .chatWindow {
+        padding-top: 60px;
+        align-items: stretch;
+        min-height: 100vh;
+    }
+    .navbar {
+        flex-direction: row;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+    .navbar span {
+        margin: 0.5rem 0.5rem;
+        font-size: 1.1rem;
+    }
+    .userIconDiv {
+        margin: 0.5rem 0.5rem;
+        font-size: 1.3rem;
+    }
+    .chatInput {
+        padding: 0 0.5rem 0.5rem 0.5rem;
+    }
+    .inputBox {
+        max-width: 98vw;
+    }
+}
 .chatWindow {
     background-color: #212121;
     height: 100vh;
@@ -26,6 +53,12 @@
     margin: 1rem 2rem;
     font-size: 1.8rem;
     
+}
+.userIconDiv span{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    align-items: center;
 }
 
 /* .userIcon {

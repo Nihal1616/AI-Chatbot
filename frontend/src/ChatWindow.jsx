@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import Chat from "./Chat.jsx";
 import "./ChatWindow.css";
+
 import { MyContext } from "./MyContext";
 import { PulseLoader } from "react-spinners";
 
@@ -13,6 +14,11 @@ export default function ChatWindow() {
     currThreadId,
     setPrevChats,
     setNewChat,
+    username,
+    setAuthToken,
+    setIsAuthenticated,
+    setUsername,
+    authToken,
   } = useContext(MyContext);
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +30,7 @@ export default function ChatWindow() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`,
       },
       body: JSON.stringify({
         message: prompt,
@@ -70,6 +77,16 @@ export default function ChatWindow() {
     setIsOpen(!isOpen);
   };
 
+  const handleLogout=()=>{
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+
+    // Reset context values
+    setIsAuthenticated(false);
+    setAuthToken(null);
+    setUsername(null);
+  }
+
   return (
     <div className="chatWindow">
       <div className="navbar">
@@ -79,6 +96,7 @@ export default function ChatWindow() {
         <div className="userIconDiv" onClick={handleProfileClick}>
           <span>
             <i className="fa-solid fa-circle-user"></i>
+            <p style={{ fontSize: "16px" }}>{username}</p>
           </span>
         </div>
       </div>
@@ -90,7 +108,7 @@ export default function ChatWindow() {
           <div className="dropDownItem">
             <i className="fa-solid fa-cloud-arrow-up"></i> Upgrade plan
           </div>
-          <div className="dropDownItem">
+          <div onClick={handleLogout} className="dropDownItem">
             <i className="fa-solid fa-arrow-right-from-bracket"></i> Log out
           </div>
         </div>
