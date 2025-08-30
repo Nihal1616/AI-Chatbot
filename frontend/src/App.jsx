@@ -5,6 +5,7 @@ import Auth from "./Authentication.jsx";
 import { MyContext } from "./MyContext.jsx";
 import { useEffect, useState } from "react";
 import { v1 as uuidv1 } from "uuid";
+import server from '../environment.js'
 
 function App() {
   const [prompt, setPrompt] = useState("");
@@ -24,7 +25,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      fetch("http://localhost:8000/api/verifyToken", {
+      fetch(`${server}/api/verifyToken`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),

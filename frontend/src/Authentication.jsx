@@ -3,7 +3,6 @@ import axios from "axios";
 import { MyContext } from "./MyContext";
 import "./Authentication.css";
 
-
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
@@ -33,9 +32,7 @@ const Auth = () => {
     setIsLoading(true);
 
     try {
-      const endpoint = isLogin
-        ? "http://localhost:8000/api/login"
-        : "http://localhost:8000/api/signup";
+      const endpoint = isLogin ? `${server}/api/login` : `${server}/api/signup`;
 
       const dataToSend = isLogin
         ? { username: formData.username, password: formData.password }
@@ -76,7 +73,6 @@ const Auth = () => {
       setIsLoading(false);
     }
   };
-
 
   return (
     <div className="auth-container">

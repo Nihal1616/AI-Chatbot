@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import Chat from "./Chat.jsx";
 import "./ChatWindow.css";
+import server from "../environment.js";
 
 import { MyContext } from "./MyContext";
 import { PulseLoader } from "react-spinners";
@@ -38,7 +39,7 @@ export default function ChatWindow() {
       }),
     };
     try {
-      const response = await fetch("http://localhost:8000/api/chat", options);
+      const response = await fetch(`${server}/api/chat`, options);
       const res = await response.json();
       console.log(res);
       setReply(res);
